@@ -1,0 +1,23 @@
+{% extends "base.html" %} 
+
+{% block title %}Forside{% endblock %} 
+
+{% block content %} 
+
+<form method="POST">
+    <label for="navn">Navn:</label>
+    <input type="text" id="navn" name="navn" required>
+
+    <label for="epost">Epost:</label>
+    <input type="email" id="email" name="email" required>
+    
+    <label for="alder">Alder:</label>
+    <input type="number" id="alder" name="alder" required>
+   
+    <label for="fag">komentar:</label>
+    <textarea name="komentar" id="komentar"></textarea>
+
+    <button type="submit">Send</button>
+</form>
+
+{% endblock %}
