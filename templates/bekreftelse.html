@@ -1,0 +1,14 @@
+{% extends "base.html" %} 
+
+{% block title %}Forside{% endblock %} 
+
+{% block content %} 
+
+    <h1>Takk for bestillingen, {{ navn }}!</h1>
+    <p>Produkt: {{ produkt }}</p>
+    <p>Størrelse: {{ storrelse }}</p>
+    <p>Antall: {{ antall }}</p>
+
+    <p>Kommentar: {{ kommentar }}</p>
+
+{% endblock %}

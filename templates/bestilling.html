@@ -1,0 +1,40 @@
+{% extends "base.html" %} 
+
+{% block title %}bestilling{% endblock %} 
+
+{% block content %} 
+
+<form method="POST">
+    <label for="navn">Kjøperens navn:</label>
+    <input type="text" id="navn" name="navn" required>
+
+        
+    <label for="produkt">Produkt:</label>
+    <select name="produkt" id="produkt" required>
+
+        {% for produkt in produkter %}
+            <option value="{{produkt}}">{{produkt}}</option>
+        {% endfor %}
+
+    </select>
+
+    <label for="strorrelse">Storrelse:</label>
+    <select name="storrelse" id="storrelse" required>
+
+        {% for storrelse in storrelser %}
+            <option value="{{storrelse}}">{{storrelse}}</option>
+        {% endfor %}
+
+    </select>
+
+
+    <label for="antall">Antall:</label>
+    <input type="number" id="antall" name="antall" required>
+   
+    <label for="kommentar">Kommentar:</label>
+    <textarea name="kommentar" id="kommentar"></textarea>
+
+    <button type="submit">Send</button>
+</form>
+
+{% endblock %}

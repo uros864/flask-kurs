@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <label for="tall_1">Tall 1:</label>
+    <input type="number" id="tall_1" name="tall_1" required>
+
+    <label for="tall_2">Tall 2:</label>
+    <input type="number" id="tall_2" name="tall_2" required>
+
+    <label for="regneart">Regneart:</label>
+    <select name="regneart" id="regneart" required>
+        {% for regneart in regnearter %}
+            <option value="{{regneart}}">{{regneart}}</option>
+        {% endfor %}
+
+    </select>
+</body>
+</html>

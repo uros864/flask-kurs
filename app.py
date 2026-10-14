@@ -21,23 +21,53 @@ def spill():
     spillliste = ["Minecraft", "Rocket League", "Witcher 3", "Cyberpunk", "Apex Legends"  ]
     return render_template("spill.html", spill=spillliste)
 
-@app.route("/registrering", methods=["GET","POST"])
-def registrering():
 
+
+@app.route("/bestilling", methods=["GET","POST"])
+def bestilling():
+
+    produkter = ["Margherita","Peproni","BBQ", "Hawaii"]
+    storrelser = ["Liten", "Medium", "Stor"]
     if request.method == "POST":
         navn = request.form["navn"]
-        email = request.form["email"]
-        alder = request.form["alder"]
-        komentar = request.form["komentar"]
+        produkt = request.form["produkt"]
+        storrelse = request.form["storrelse"]
+        antall = request.form["antall"]
+        kommentar = request.form.get("kommentar","")
         return render_template(
-            "resultat.html",
+            "bekreftelse.html",
             navn=navn,
-            email=email,
-            alder=alder,
-            komentar=komentar
+            produkt=produkt,
+            storrelse=storrelse,
+            antall=antall,
+            kommentar=kommentar
         )
 
-    return render_template("registrering.html")
+    return render_template(
+        "bestilling.html",
+        produkter=produkter,
+        storrelser=storrelser)
+
+
+@app.route("/kalkulator", methods=["GET","POST"])
+def kalkulator():
+
+    regnearter = ["+","-","*", "/"]
+    if request.method == "POST":
+        tall_1=request.form["tall1"]
+        tall_2=request.form["tall2"]
+        regneart=request.form["regneart"]
+        return render_template(
+            "kalkulator.html",
+            tall_1=tall_1,
+            tall_2=tall_2,
+            regneart=regneart
+
+        )
+
+    return render_template(
+        "kalkulator_skjema.html",
+        regnearter=regnearter)
 
 
 if __name__ == "__main__":
